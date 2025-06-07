@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <style>
+        #game {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            ;
+        }
+        button {
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="game"></div>
+    <script>
+        const jogadas = [
+            '', '', '',
+            '', '', '',
+            '', '', ''
+        ]
+        function fazerJogadas(posicao) {
+            jogadas[posicao] = "X";
+            desenhaBotoes();
+        }
+        function desenhaBotoes() {
+            const game = document.querySelector("#game")
+            game.innerHTML = "";
+            for (let i = 0; i < 9; i++){
+                game.innerHTML += `
+                    <button onclick="fazerJogadas(${i})">
+                        ${jogadas[i]}
+                        </button>
+                `
+        }
+    }
+    desenhaBotoes();
+    </script>
+</body>
+</html>
